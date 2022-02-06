@@ -43,24 +43,10 @@ def Sprawdzacz():
         exit()
 def Nacisk():
     i=0
-    if buttons[0][0]['state'] == "disabled":
-        i+=1
-    if buttons[0][1]['state'] == "disabled":
-        i+=1
-    if buttons[0][2]['state'] == "disabled":
-        i+=1
-    if buttons[1][0]['state'] == "disabled":
-        i+=1
-    if buttons[1][1]['state'] == "disabled":
-        i+=1
-    if buttons[1][2]['state'] == "disabled":
-        i+=1
-    if buttons[2][0]['state'] == "disabled":
-        i+=1
-    if buttons[2][1]['state'] == "disabled":
-        i+=1
-    if buttons[2][2]['state'] == "disabled":
-        i+=1
+    for j in range(3):
+        for k in range(3):
+            if buttons[j][k]['state'] == 'disabled':
+                i+=1
     return i
 def HandleButtonClick(x, y):
     i = Nacisk()
@@ -83,15 +69,9 @@ for j in range(3):
     buttons.append(buttonRow)
 ##
 def Gridy(buttons):
-    buttons[0][0].grid(ipady=30, ipadx=30, padx=5, pady=5, column=1, row=1)
-    buttons[0][1].grid(ipady=30, ipadx=30, padx=5, pady=5, column=1, row=2)
-    buttons[0][2].grid(ipady=30, ipadx=30, padx=5, pady=5, column=1, row=3)
-    buttons[1][0].grid(ipady=30, ipadx=30, padx=5, pady=5, column=2, row=1)
-    buttons[1][1].grid(ipady=30, ipadx=30, padx=5, pady=5, column=2, row=2)
-    buttons[1][2].grid(ipady=30, ipadx=30, padx=5, pady=5, column=2, row=3)
-    buttons[2][0].grid(ipady=30, ipadx=30, padx=5, pady=5, column=3, row=1)
-    buttons[2][1].grid(ipady=30, ipadx=30, padx=5, pady=5, column=3, row=2)
-    buttons[2][2].grid(ipady=30, ipadx=30, padx=5, pady=5, column=3, row=3)
+    for j in range(3):
+        for k in range(3):
+            buttons[j][k].grid(ipady=30, ipadx=30, padx=5, pady=5, column=j+1, row=k+1)
     return buttons
 ##
 gridy = Gridy(buttons)
