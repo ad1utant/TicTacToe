@@ -1,4 +1,4 @@
-#TicTacToe
+# TicTacToe
 It's my first game like TicTacToe made for school computer lessons.
 I made it using tkinter library in python.
 
